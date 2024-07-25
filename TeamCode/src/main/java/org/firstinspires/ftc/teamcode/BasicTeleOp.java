@@ -32,10 +32,15 @@ public class BasicTeleOp extends OpMode {
         double yPower = gamepad1.left_stick_x;
         double zPower = gamepad1.right_stick_x;
 
-        lfPower = Range.clip(xPower + yPower + zPower, -1, 1);
-        rfPower = Range.clip(xPower - yPower - zPower, -1, 1);
-        lbPower = Range.clip(xPower - yPower + zPower, -1, 1);
-        rbPower = Range.clip(xPower + yPower - zPower, -1, 1);
+        lfPower = Range.clip(xPower + yPower - zPower, -1, 1);
+        rfPower = Range.clip(xPower - yPower + zPower, -1, 1);
+        lbPower = Range.clip(xPower - yPower - zPower, -1, 1);
+        rbPower = Range.clip(xPower + yPower + zPower, -1, 1);
+
+        telemetry.addData("LeftFront: ", lfPower);
+        telemetry.addData("RightFront: ", rfPower);
+        telemetry.addData("LeftBack: ", lbPower);
+        telemetry.addData("RightBack: ", rbPower);
 
         lfMotor.setPower(lfPower);
         rfMotor.setPower(rfPower);

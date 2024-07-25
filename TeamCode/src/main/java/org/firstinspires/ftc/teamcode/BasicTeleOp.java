@@ -7,14 +7,13 @@ import com.qualcomm.robotcore.util.Range;
 
 @TeleOp(name="Basic TeleOp", group="TeleOp")
 public class BasicTeleOp extends OpMode {
-
-    static public class Motors {
+    public class Motors {
         public DcMotor RightFront;
         public DcMotor LeftFront;
         public DcMotor RightBack;
         public DcMotor LeftBack;
     }
-    private Motors motors;
+    private final Motors motors = new Motors();
 
     public void init(){
         motors.LeftFront = hardwareMap.get(DcMotor.class, "lf_drive");
@@ -33,10 +32,10 @@ public class BasicTeleOp extends OpMode {
         double yPower = gamepad1.left_stick_x;
         double zPower = gamepad1.right_stick_x;
 
-        lfPower = Range.clip(xPower + yPower - zPower, -1, 1);
-        rfPower = Range.clip(xPower - yPower + zPower, -1, 1);
-        lbPower = Range.clip(xPower - yPower - zPower, -1, 1);
-        rbPower = Range.clip(xPower + yPower + zPower, -1, 1);
+        lfPower = Range.clip(xPower - yPower - zPower, -1, 1);
+        rfPower = Range.clip(xPower + yPower + zPower, -1, 1);
+        lbPower = Range.clip(xPower + yPower - zPower, -1, 1);
+        rbPower = Range.clip(xPower - yPower + zPower, -1, 1);
 
         telemetry.addData("LeftFront: ", lfPower);
         telemetry.addData("RightFront: ", rfPower);

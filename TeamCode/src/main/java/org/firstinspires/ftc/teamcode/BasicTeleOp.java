@@ -17,13 +17,10 @@ public class BasicTeleOp extends OpMode {
     private Motors motors;
 
     public void init(){
-        motors.LeftFront = hardwareMap.get(DcMotor.class, "LeftFront_drive");
-        motors.RightFront = hardwareMap.get(DcMotor.class, "RightFront_drive");
-        motors.LeftBack = hardwareMap.get(DcMotor.class, "LeftBack_drive");
-        motors.RightBack = hardwareMap.get(DcMotor.class, "RightBack_drive");
-
-        motors.RightFront.setDirection(DcMotor.Direction.REVERSE);
-        motors.LeftBack.setDirection(DcMotor.Direction.REVERSE);
+        motors.LeftFront = hardwareMap.get(DcMotor.class, "lf_drive");
+        motors.RightFront = hardwareMap.get(DcMotor.class, "rf_drive");
+        motors.LeftBack = hardwareMap.get(DcMotor.class, "lb_drive");
+        motors.RightBack = hardwareMap.get(DcMotor.class, "rb_drive");
     }
 
     public void loop(){

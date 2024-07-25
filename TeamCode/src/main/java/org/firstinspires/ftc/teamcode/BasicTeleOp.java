@@ -14,7 +14,7 @@ public class BasicTeleOp extends OpMode {
         public DcMotor RightBack;
         public DcMotor LeftBack;
     }
-    private final Motors motors = null;
+    private Motors motors;
 
     public void init(){
         motors.LeftFront = hardwareMap.get(DcMotor.class, "LeftFront_drive");

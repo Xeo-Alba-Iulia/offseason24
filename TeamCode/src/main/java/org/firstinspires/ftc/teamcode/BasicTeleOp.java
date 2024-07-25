@@ -7,19 +7,23 @@ import com.qualcomm.robotcore.util.Range;
 
 @TeleOp(name="Basic TeleOp", group="TeleOp")
 public class BasicTeleOp extends OpMode {
-    private DcMotor lfMotor = null;
-    private DcMotor rfMotor = null;
-    private DcMotor lbMotor = null;
-    private DcMotor rbMotor = null;
+
+    static public class Motors {
+        public DcMotor RightFront;
+        public DcMotor LeftFront;
+        public DcMotor RightBack;
+        public DcMotor LeftBack;
+    }
+    private Motors motors;
 
     public void init(){
-        lfMotor  = hardwareMap.get(DcMotor.class, "lf_drive");
-        rfMotor = hardwareMap.get(DcMotor.class, "rf_drive");
-        lbMotor = hardwareMap.get(DcMotor.class, "lb_drive");
-        rbMotor = hardwareMap.get(DcMotor.class, "rb_drive");
+        motors.LeftFront = hardwareMap.get(DcMotor.class, "LeftFront_drive");
+        motors.RightFront = hardwareMap.get(DcMotor.class, "RightFront_drive");
+        motors.LeftBack = hardwareMap.get(DcMotor.class, "LeftBack_drive");
+        motors.RightBack = hardwareMap.get(DcMotor.class, "RightBack_drive");
 
-        rfMotor.setDirection(DcMotor.Direction.REVERSE);
-        lbMotor.setDirection(DcMotor.Direction.REVERSE);
+        motors.RightFront.setDirection(DcMotor.Direction.REVERSE);
+        motors.LeftBack.setDirection(DcMotor.Direction.REVERSE);
     }
 
     public void loop(){
@@ -42,9 +46,9 @@ public class BasicTeleOp extends OpMode {
         telemetry.addData("LeftBack: ", lbPower);
         telemetry.addData("RightBack: ", rbPower);
 
-        lfMotor.setPower(lfPower);
-        rfMotor.setPower(rfPower);
-        lbMotor.setPower(lbPower);
-        rbMotor.setPower(rbPower);
+        motors.LeftFront.setPower(lfPower);
+        motors.RightFront.setPower(rfPower);
+        motors.LeftBack.setPower(lbPower);
+        motors.RightBack.setPower(rbPower);
     }
 }

@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.util.Range;
 
 @TeleOp(name="Basic TeleOp", group="TeleOp")
 public class BasicTeleOp extends OpMode {
-    public class Motors {
+    private static class Motors {
         public DcMotor RightFront;
         public DcMotor LeftFront;
         public DcMotor RightBack;
@@ -29,6 +29,7 @@ public class BasicTeleOp extends OpMode {
         double rbPower;
 
         double xPower = gamepad1.left_stick_y;
+        //noinspection SuspiciousNameCombination
         double yPower = gamepad1.left_stick_x;
         double zPower = gamepad1.right_stick_x;
 

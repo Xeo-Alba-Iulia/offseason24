@@ -15,14 +15,16 @@ public class BasicTeleOp extends OpMode {
     }
     private final Motors motors = new Motors();
 
-    public void init(){
+    @Override
+    public void init() {
         motors.LeftFront = hardwareMap.get(DcMotor.class, "lf_drive");
         motors.RightFront = hardwareMap.get(DcMotor.class, "rf_drive");
         motors.LeftBack = hardwareMap.get(DcMotor.class, "lb_drive");
         motors.RightBack = hardwareMap.get(DcMotor.class, "rb_drive");
     }
 
-    public void loop(){
+    @Override
+    public void loop() {
         double lfPower;
         double rfPower;
         double lbPower;

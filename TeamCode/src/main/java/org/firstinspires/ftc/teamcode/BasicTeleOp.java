@@ -44,6 +44,7 @@ public class BasicTeleOp extends OpMode {
     }
 
     public void loop(){
+        //noinspection SuspiciousNameCombination
         class Power {
             double leftFront;
             double rightFront;

@@ -8,13 +8,13 @@ import com.qualcomm.robotcore.util.Range;
 
 @TeleOp(name="Basic TeleOp", group="TeleOp")
 public class BasicTeleOp extends OpMode {
-    public static class Motors {
+    private static class Motors {
         public DcMotor RightFront;
         public DcMotor LeftFront;
         public DcMotor RightBack;
         public DcMotor LeftBack;
     }
-    public static class Odometry {
+    private static class Odometry {
         public DcMotor xAxisOdometry;
         public DcMotor yAxisOdometry;
         public DcMotor zAxisOdometry;
